@@ -1,4 +1,5 @@
 import sys, copy
+import pyperclip
 
 BOARD_TEMPLATE = """
     a    b    c    d    e    f    g    h
@@ -67,3 +68,22 @@ def print_chessboard(board):
     print(BOARD_TEMPLATE.format(*squares))
 
 print_chessboard(STARTING_PIECES)
+
+print(r'file would be in ./~zprofile') # put r to get raw strings
+f_name = './zprofile'
+print(f'file would also be {f_name}')
+print_able = [str(x) for x in range(10)]
+print((':'.join(print_able)).split(':'), end='\n')
+
+
+for x, y in enumerate(pyperclip.paste()):
+    print(x, y)
+
+print(''.join([c.upper() if i%5==0 else c.lower() for i,c in enumerate(pyperclip.paste())]))
+
+text = pyperclip.paste()
+
+# Separate lines and add stars.
+lines = text.split('\n')
+for i in range(len(lines)):  # Loop through all indexes in the "lines" list.
+    lines[i] = '* ' + lines[i] # Add a star to each string in the "lines" list.
